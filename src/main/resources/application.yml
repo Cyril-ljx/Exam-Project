@@ -1,0 +1,28 @@
+#老师连接数据库的方法
+#先是要导入一个mysql的依赖
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/exam?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  #自己指定XML配置文件的位置，让springboot可以查找
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    #    开启mybatis驼峰式命名
+    map-underscore-to-camel-case: true
+
+
+# 打印sql
+logging:
+  level:
+    cn.edu.lingnan.part.dao : debug
+    #指定日志配置文件路径
+#  config: cla
+#  file:
+#    path: app.log
+
+
+
