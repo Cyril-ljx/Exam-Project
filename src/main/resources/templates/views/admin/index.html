@@ -40,7 +40,7 @@
                         <cite>欢迎您！[[${session.loginName}]]</cite>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd layadmin-event="logout" onclick="logout()" style="text-align: center;"><a>退出</a></dd>
+                        <dd layadmin-event="logout" onclick="logout()" style="text-align: center;"><a href="/user/cancel">退出</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -172,7 +172,7 @@
     function logout() {
         $.ajax({
             type: 'GET',
-            url: '/logout',
+            url: '/user/cancel',
             success: function () {
                 layer.msg('退出成功！', {
                     offset: '15px'
