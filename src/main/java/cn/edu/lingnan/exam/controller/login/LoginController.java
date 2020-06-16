@@ -46,6 +46,7 @@ public class LoginController {
         String vrifyCode = (String) request.getSession().getAttribute("vrifyCode");
         if (user != null) {
             User users = userService.loginByUser(user.getUsername(), user.getPassword());
+            System.out.println(users);
             if (users == null) {
                 return "passwordError";
             } else if (!vrifyCode.equals(user.getVercode())) {
