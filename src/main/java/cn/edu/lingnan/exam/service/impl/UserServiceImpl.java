@@ -4,6 +4,7 @@ import cn.edu.lingnan.exam.entity.User;
 import cn.edu.lingnan.exam.dao.UserDao;
 import cn.edu.lingnan.exam.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -75,5 +76,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean deleteById(Integer id) {
         return this.userDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public User loginByUser(String username, String password) {
+        if (username != null && password != null) {
+            return userDao.loginByUser(username, DigestUtils.md5DigestAsHex(password.getBytes()));
+        }
+        return null;
     }
 }

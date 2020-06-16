@@ -1,9 +1,9 @@
 package cn.edu.lingnan.exam.controller.login;
 
+import cn.edu.lingnan.exam.common.LoginSession;
+import cn.edu.lingnan.exam.entity.User;
+import cn.edu.lingnan.exam.service.UserService;
 import com.google.code.kaptcha.Producer;
-import com.pengzhen.yixinli.common.LoginSession;
-import com.pengzhen.yixinli.entity.User;
-import com.pengzhen.yixinli.service.UserService;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ import java.awt.image.BufferedImage;
 @Controller
 public class LoginController {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    //private Logger logger = LoggerFactory.getLogger(this.getClass());
     //注入
     @Autowired
     private Producer producer;
@@ -53,12 +53,7 @@ public class LoginController {
             }
             LoginSession.setUserInSession(users);
             request.getSession().setAttribute("loginName", users.getUsername());
-            if(users.getTocheck() == 1){
-                return "adminsuccessls";
-            }else
-                return "success";
-//            System.out.println(users);
-
+            return "success";
         } else {
             return "userNull";
         }

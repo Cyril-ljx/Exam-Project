@@ -22,6 +22,8 @@ public class User implements Serializable {
     private String name;
     
     private String address;
+
+    private String vercode;
     
     private String phone;
     /**
@@ -33,6 +35,13 @@ public class User implements Serializable {
     */
     private Integer tocheck;
 
+    public String getVercode() {
+        return vercode;
+    }
+
+    public void setVercode(String vercode) {
+        this.vercode = vercode;
+    }
 
     public Integer getId() {
         return id;

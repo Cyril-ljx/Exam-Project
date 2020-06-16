@@ -52,4 +52,5 @@ public interface UserService {
      */
     boolean deleteById(Integer id);
 
+    User loginByUser(String username, String password);
 }
