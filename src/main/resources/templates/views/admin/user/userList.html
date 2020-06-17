@@ -72,6 +72,14 @@
                     </div>
                 </div>
                 <div class="layui-inline">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="password" name="password" lay-verify="required"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
                     <label class="layui-form-label">用户邮箱</label>
                     <div class="layui-input-inline">
                         <input type="text" id="email" name="email" lay-verify="required" autocomplete="off"
@@ -119,6 +127,7 @@
 <script th:inline="none">
     layui.use(['table', 'form'], function (exports) {
         var $ = layui.$, table = layui.table, form = layui.form;
+
         //用户管理
         table.render({
             elem: '#user-list'
@@ -145,6 +154,13 @@
         //监听行工具事件
         table.on('tool(user-list)', function (obj) {
             var data = obj.data;
+            var ids = "";
+            for(var i = 0; i < data.length; i++) {
+                ids += data[i].id;
+                if (i != data.length - 1) {
+                    ids += ","
+                }
+            }
             if (obj.event === 'del') {
                 layer.confirm('真的删除吗！', function (index) {
 
@@ -182,6 +198,7 @@
                         //回显数据
                         $("#id").val(data.id);
                         $("#username").val(data.username);
+                        $("#password").val(data.password);
                         $("#email").val(data.email);
                         $("#name").val(data.name);
                         $("#address").val(data.address);

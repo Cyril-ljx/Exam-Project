@@ -1,7 +1,10 @@
 package cn.edu.lingnan.exam.service;
 
 import cn.edu.lingnan.exam.entity.User;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
 import java.util.List;
+
 
 /**
  * (User)表服务接口
@@ -11,22 +14,10 @@ import java.util.List;
  */
 public interface UserService {
 
-    /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
+
     User queryById(Integer id);
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<User> queryAllByLimit(int offset, int limit);
+
 
     /**
      * 新增数据
@@ -42,15 +33,53 @@ public interface UserService {
      * @param user 实例对象
      * @return 实例对象
      */
-    User update(User user);
+    int updateByPrimaryKey(User record);
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param ids 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer id);
+    boolean deleteById(List<Integer> ids);
+    int deleteByPrimaryKey(Integer id);
 
+    /**
+     * 登陆
+     * @param username
+     * @param password
+     * @return
+     */
     User loginByUser(String username, String password);
+
+    /**
+     * 查找全部
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<User> selectAll(int page, int limit);
+
+
+    /**
+     * 通过username查找
+     * @param username
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<User> selectByUsername(String username, int page, int limit);
+
+    /**
+     * 用于分页计数
+     * @return
+     */
+    long count();
+
+    /**
+     * 用于查询用户，然后修改密码
+     * @param username
+     * @return
+     */
+    User queryByUserName(String username);
 }

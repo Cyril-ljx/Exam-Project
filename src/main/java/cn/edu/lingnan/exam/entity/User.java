@@ -9,10 +9,41 @@ import java.io.Serializable;
  * @since 2020-06-15 17:21:06
  */
 public class User implements Serializable {
-    private static final long serialVersionUID = -91225447232288238L;
-    
+    private static final long serialVersionUID = 329125029044442635L;
     private Integer id;
-    
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", vercode='" + vercode + '\'' +
+                ", phone='" + phone + '\'' +
+                ", userType='" + userType + '\'' +
+                ", tocheck=" + tocheck +
+                '}';
+    }
+
+    public User(Integer id, String username, String password, String email, String name, String address, String vercode, String phone, String userType, Integer tocheck) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.address = address;
+        this.vercode = vercode;
+        this.phone = phone;
+        this.userType = userType;
+        this.tocheck = tocheck;
+    }
+
     private String username;
     
     private String password;
