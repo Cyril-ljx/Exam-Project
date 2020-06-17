@@ -33,10 +33,10 @@ public interface TopicDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param topic 实例对象
+     * @param
      * @return 对象列表
      */
-    List<Topic> queryAll(Topic topic);
+    List<Topic> queryAll();
 
     /**
      * 新增数据

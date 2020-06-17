@@ -33,18 +33,16 @@ public interface NoticeDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param notice 实例对象
      * @return 对象列表
      */
-    List<Notice> queryAll(Notice notice);
+    List<Notice> queryAll();
 
     /**
      * 新增数据
      *
-     * @param notice 实例对象
      * @return 影响行数
      */
-    int insert(Notice notice);
+    int insert(Notice record);
 
     /**
      * 修改数据
@@ -62,4 +60,7 @@ public interface NoticeDao {
      */
     int deleteById(Integer id);
 
+    List<Notice> selectByKeyWord(String keyword1, String keyword2);
+
+    int count();
 }
