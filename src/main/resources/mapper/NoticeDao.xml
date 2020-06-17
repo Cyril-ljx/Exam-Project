@@ -31,23 +31,6 @@
         select
           id, title, content, create_time, user_op
         from exam.notice
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="title != null and title != ''">
-                and title = #{title}
-            </if>
-            <if test="content != null and content != ''">
-                and content = #{content}
-            </if>
-            <if test="createTime != null">
-                and create_time = #{createTime}
-            </if>
-            <if test="userOp != null and userOp != ''">
-                and user_op = #{userOp}
-            </if>
-        </where>
     </select>
 
     <!--新增所有列-->
@@ -80,5 +63,23 @@
     <delete id="deleteById">
         delete from exam.notice where id = #{id}
     </delete>
+    <select id="count" resultType="_int">
+   select
+          count(*)
+        from exam.notice
+    </select>
+    <select id="selectByKeyWord" resultMap="NoticeMap">
+        select id, title, content, create_time, user_op
+        from exam.notice
+        <where>
+
+            <if test="keyword1 !=null and keyword1 != '' and keyword1 !='undefined' ">
+                and title like concat('%',#{keyword1},'%')
+            </if>
+            <if test="keyword2 !=null and keyword2 != '' and keyword2 !='undefined' ">
+               and user_op like concat('%',#{keyword2},'%')
+            </if>
+        </where>
+    </select>
 
 </mapper>

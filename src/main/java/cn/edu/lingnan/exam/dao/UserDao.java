@@ -62,4 +62,5 @@ public interface UserDao {
      */
     int deleteById(Integer id);
 
+    User loginByUser(@Param("username") String username, @Param("password") String password);
 }

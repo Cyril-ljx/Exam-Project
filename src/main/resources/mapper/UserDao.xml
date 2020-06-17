@@ -109,4 +109,9 @@
         delete from exam.user where id = #{id}
     </delete>
 
+       <select id="loginByUser" resultMap="UserMap" resultType="cn.edu.lingnan.exam.entity.User">
+         select id, username, password, email, name, address, phone,tocheck,user_type
+    from exam.user where username=#{username} AND password=#{password}
+    </select>
+
 </mapper>

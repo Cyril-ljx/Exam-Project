@@ -33,7 +33,10 @@
                             </div>
                             <p th:text="${notice.content}"></p>
                             <div class="btn-box">
-                                <a href="" th:href="@{/noticeClientUi/get?id=}+${index}">下一篇</a>
+                                <a href="" th:href="@{/noticeClientUi/get?id=}+${index}">上一篇</a>
+                            </div>
+                            <div class="btn-box">
+                                <a href="" th:href="@{/noticeClientUi/get?id=}+${id}">下一篇</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +61,6 @@
         </div>
     </div>
 </script>
-<div th:replace="client/html/commons/bar::footer"></div>
 <script type="text/javascript" src="../res/layui/layui.js"></script>
 <script type="text/javascript">
     layui.config({

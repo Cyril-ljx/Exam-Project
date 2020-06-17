@@ -1,11 +1,38 @@
 #老师连接数据库的方法
 #先是要导入一个mysql的依赖
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/views/
+  application:
+    name: Exam-System
   datasource:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/exam?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC&allowMultiQueries=true
     driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: false
+      test-while-idle: true
+      test-on-return: false
+      pool-prepared-statements: true
+      filter: stat,wall,log4j
+      max-pool-prepared-statement-per-connection-size: 20
+      use-global-data-source-stat: true
+      connect-properties: druid.stat.mergeSql =true;druid.stat.slowSqlMillis=5000
+
+  jackson:
+    date-format: yyyy/MM/dd HH:mm:ss
+
+
+
 
 mybatis:
   #自己指定XML配置文件的位置，让springboot可以查找
@@ -18,11 +45,15 @@ mybatis:
 # 打印sql
 logging:
   level:
-    cn.edu.lingnan.part.dao : debug
+    cn.edu.lingnan.exam.dao : debug
     #指定日志配置文件路径
 #  config: cla
 #  file:
 #    path: app.log
 
 
-
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: ture
+  params: count=countSql

@@ -1,6 +1,6 @@
 package cn.edu.lingnan.exam.common;
 
-import com.pengzhen.yixinli.entity.User;
+import cn.edu.lingnan.exam.entity.User;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
