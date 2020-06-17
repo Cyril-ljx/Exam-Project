@@ -1,6 +1,6 @@
 package cn.edu.lingnan.exam.config;
 
-import cn.edu.lingnan.exam.controller.login.CheckLoginInterceptor;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class LoginConfiguration implements WebMvcConfigurer {
 
     //注册一个拦截器
-    @Override
+    /*@Override
     public void addInterceptors(InterceptorRegistry registry) {
         CheckLoginInterceptor interceptor = new CheckLoginInterceptor();
         InterceptorRegistration interceptorRegistration = registry.addInterceptor(interceptor);
@@ -35,5 +35,5 @@ public class LoginConfiguration implements WebMvcConfigurer {
         // 排除资源请求
         interceptorRegistration.excludePathPatterns("/layuiadmin/**");
         interceptorRegistration.excludePathPatterns("/res/**");
-    }
+    }*/
 }
