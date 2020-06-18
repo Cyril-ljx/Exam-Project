@@ -33,7 +33,7 @@ public class TopicController {
 
     @RequestMapping("/topicView")
     public String topicView() {
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/topic/topicList";

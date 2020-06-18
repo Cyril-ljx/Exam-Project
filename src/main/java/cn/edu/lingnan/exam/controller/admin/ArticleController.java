@@ -37,7 +37,7 @@ public class ArticleController {
 
     @RequestMapping("/articleUi")
     public String articleListUi() {
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/article/list";
@@ -85,7 +85,7 @@ public class ArticleController {
 //  去到添加页面
     @RequestMapping("/articleUiAdd")
     public String articleAddUi() {
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/article/listform";

@@ -1,10 +1,7 @@
 package cn.edu.lingnan.exam.dao;
 
 import cn.edu.lingnan.exam.entity.Topic;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -13,8 +10,6 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-15 17:20:58
  */
-@Mapper
-@Repository
 public interface TopicDao {
 
     /**
@@ -38,10 +33,10 @@ public interface TopicDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param
+     * @param topic 实例对象
      * @return 对象列表
      */
-    List<Topic> queryAll();
+    List<Topic> queryAll(Topic topic);
 
     /**
      * 新增数据

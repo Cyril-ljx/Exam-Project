@@ -1,7 +1,6 @@
 package cn.edu.lingnan.exam.service;
 
 import cn.edu.lingnan.exam.entity.User;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import java.util.List;
 
@@ -30,7 +29,7 @@ public interface UserService {
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param record 实例对象
      * @return 实例对象
      */
     int updateByPrimaryKey(User record);

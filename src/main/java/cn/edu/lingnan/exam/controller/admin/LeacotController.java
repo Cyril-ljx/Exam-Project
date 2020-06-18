@@ -38,7 +38,7 @@ public class LeacotController {
     @RequestMapping("/leacotsView")
     public String leacotUi() {
 //       如果用户不是admin无法查看
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/leacots/leacotsList";

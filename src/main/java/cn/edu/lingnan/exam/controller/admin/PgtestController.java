@@ -29,7 +29,7 @@ public class PgtestController {
 
     @RequestMapping("/pgtestView")
     public String pgtestView() {
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/topic/pgtestList";

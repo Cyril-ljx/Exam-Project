@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
  * @Viersion V1.0.1
  */
 
-/*
 public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -29,4 +28,3 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
         return true;
     }
 }
-*/

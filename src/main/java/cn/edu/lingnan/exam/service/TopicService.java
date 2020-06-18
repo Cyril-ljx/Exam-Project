@@ -34,7 +34,7 @@ public interface TopicService {
      * @param topic 实例对象
      * @return 实例对象
      */
-    Topic insert(Topic topic);
+    boolean insert(Topic topic);
 
     /**
      * 修改数据
@@ -50,7 +50,18 @@ public interface TopicService {
      * @param id 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer id);
+    boolean deleteByPrimaryKey(Integer id);
+
+    List<Topic> selectByList();
+
+    List<Topic> selectByKeyWord(Integer page, Integer limit, String keyword1);
+
+    /**
+     * 更新数据
+     * @param record
+     * @return
+     */
+    boolean updateByPrimaryKey(Topic record);
 
     int count();
 
@@ -60,5 +71,5 @@ public interface TopicService {
      * @param limit
      * @return
      */
-    List<Topic> selectAll(int page,int limit);
+    List<Topic> selectAll(int page, int limit);
 }
