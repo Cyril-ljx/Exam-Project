@@ -76,4 +76,13 @@ public class LabelServiceImpl implements LabelService {
     public boolean deleteById(Integer id) {
         return this.labelDao.deleteById(id) > 0;
     }
+
+    /**
+     * 查询全部标签
+     * @return
+     */
+    @Override
+    public List<Label> selectAll() {
+        return labelDao.selectAll();
+    }
 }

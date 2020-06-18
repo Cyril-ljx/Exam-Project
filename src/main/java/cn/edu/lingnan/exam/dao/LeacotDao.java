@@ -62,4 +62,35 @@ public interface LeacotDao {
      */
     int deleteById(Integer id);
 
+    List<Leacot> selectAll();
+
+    /**
+     * 通过关键字并进行分页显示
+     * @param keyword1
+     * @return
+     */
+    List<Leacot> selectByKeyWord(String keyword1);
+
+    int count();
+
+    /**
+     * 根据id查看留言
+     * @param id
+     * @return
+     */
+    Leacot selectByPrimaryKey(Integer id);
+
+    /**
+     * 根据id删除留言
+     * @param id
+     * @return
+     */
+    int deleteByPrimaryKey(Integer id);
+
+    /**
+     * 更新
+     * @param record
+     * @return
+     */
+    int updateByPrimaryKey(Leacot record);
 }

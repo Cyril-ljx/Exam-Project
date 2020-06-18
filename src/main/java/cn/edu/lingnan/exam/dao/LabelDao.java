@@ -62,4 +62,10 @@ public interface LabelDao {
      */
     int deleteById(Integer id);
 
+    /**
+     * 查询全部标签
+     * @return
+     */
+    List<Label> selectAll();
+
 }

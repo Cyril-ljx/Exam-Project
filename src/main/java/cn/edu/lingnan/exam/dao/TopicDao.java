@@ -60,6 +60,24 @@ public interface TopicDao {
      * @param id 主键
      * @return 影响行数
      */
-    int deleteById(Integer id);
+    int deleteByPrimaryKey(Integer id);
+
+    /**
+     * 查询全部
+     * @return
+     */
+    List<Topic> selectAll();
+
+    List<Topic> selectByKeyWord(String keyword1);
+
+    /**
+     * 更新数据
+     * @param record
+     * @return
+     */
+    int updateByPrimaryKey(Topic record);
+
+    int count();
+
 
 }

@@ -62,4 +62,7 @@ public interface ReplyDao {
      */
     int deleteById(Integer id);
 
+    int deleteByPrimaryKey(Integer id);
+
+    int updateByPrimaryKey(Reply record);
 }

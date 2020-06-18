@@ -62,4 +62,16 @@ public interface PgtestDao {
      */
     int deleteById(Integer id);
 
+    List<Pgtest> selectAllByKeyWord(String keyword1);
+
+    int count();
+
+    /**
+     * 查询全部
+     * @return
+     */
+    List<Pgtest> selectAll();
+
+    int deleteByPrimaryKey(Integer id);
+
 }

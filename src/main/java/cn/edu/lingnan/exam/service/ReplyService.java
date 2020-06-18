@@ -34,7 +34,7 @@ public interface ReplyService {
      * @param reply 实例对象
      * @return 实例对象
      */
-    Reply insert(Reply reply);
+    boolean insert(Reply reply);
 
     /**
      * 修改数据
@@ -42,7 +42,7 @@ public interface ReplyService {
      * @param reply 实例对象
      * @return 实例对象
      */
-    Reply update(Reply reply);
+    boolean updateByPrimaryKey(Reply reply);
 
     /**
      * 通过主键删除数据
@@ -51,5 +51,12 @@ public interface ReplyService {
      * @return 是否成功
      */
     boolean deleteById(Integer id);
+
+    /**
+     * 删除回复
+     * @param id
+     * @return
+     */
+    boolean deleteByPrimaryKey(Integer id);
 
 }

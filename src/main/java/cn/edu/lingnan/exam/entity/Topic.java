@@ -1,5 +1,8 @@
 package cn.edu.lingnan.exam.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -10,7 +13,6 @@ import java.io.Serializable;
  * @since 2020-06-15 17:20:58
  */
 public class Topic implements Serializable {
-    private static final long serialVersionUID = 208654286192150135L;
     /**
     * 题目ID
     */
@@ -26,6 +28,8 @@ public class Topic implements Serializable {
     /**
     * 题目创建时间
     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date topicTime;
     /**
     * 题目操作用户
@@ -41,12 +45,13 @@ public class Topic implements Serializable {
         this.id = id;
     }
 
-    public String gettopicContent() {
-        return  topicContent;
+
+    public String getTopicContent() {
+        return topicContent;
     }
 
-    public void settopicContent(String  topicContent) {
-        this.topicContent =  topicContent;
+    public void setTopicContent(String topicContent) {
+        this.topicContent = topicContent;
     }
 
     public String getReferAnswer() {
@@ -73,4 +78,14 @@ public class Topic implements Serializable {
         this.userOp = userOp;
     }
 
+    @Override
+    public String toString() {
+        return "Topic{" +
+                "id=" + id +
+                ", topicContent='" + topicContent + '\'' +
+                ", referAnswer='" + referAnswer + '\'' +
+                ", topicTime=" + topicTime +
+                ", userOp='" + userOp + '\'' +
+                '}';
+    }
 }
