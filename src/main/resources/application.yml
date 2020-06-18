@@ -3,6 +3,8 @@
 spring:
   thymeleaf:
     prefix: classpath:/templates/views/
+    #禁用缓存，以后修改静态页面的代码，就可以直接crt+F9用，不用重新部署
+    cache: false
   application:
     name: Exam-System
   datasource:

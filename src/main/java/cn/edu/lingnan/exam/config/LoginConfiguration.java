@@ -31,7 +31,9 @@ public class LoginConfiguration implements WebMvcConfigurer {
         interceptorRegistration.excludePathPatterns("/noticeClientUi/list");
         interceptorRegistration.excludePathPatterns("/noticeClientUi/get");
         interceptorRegistration.excludePathPatterns("/login_do");
+        interceptorRegistration.excludePathPatterns("/user/register_do");
         interceptorRegistration.excludePathPatterns("/loginout");
+        interceptorRegistration.excludePathPatterns("/user/register");
         // 排除资源请求
         interceptorRegistration.excludePathPatterns("/layuiadmin/**");
         interceptorRegistration.excludePathPatterns("/res/**");

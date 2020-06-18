@@ -54,6 +54,9 @@ public class LoginController {
             }
             LoginSession.setUserInSession(users);
             request.getSession().setAttribute("loginName", users.getUsername());
+            if(users.getTocheck() == 1){
+                return "adminsuccessls";
+            }else
             return "success";
         } else {
             return "userNull";

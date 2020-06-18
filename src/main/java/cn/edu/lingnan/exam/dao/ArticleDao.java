@@ -67,4 +67,21 @@ public interface ArticleDao {
      */
     int deleteById(Integer id);
 
+    //查询全部的文章
+    List<Article> selectAll();
+
+    //根据主键查询文章
+    Article selectByPrimaryKey(Integer id);
+
+    //关键字查询
+    List<Article> selectByKeyWord(String keyword1,String keyword2,String keyword3);
+
+    //计数
+    int count();
+
+    //根据id删除
+    int deleteByPrimaryKey(Integer id);
+
+    //根据文章的id更新文章
+    int updateByPrimaryKey(Article record);
 }

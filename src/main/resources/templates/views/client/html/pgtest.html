@@ -101,7 +101,8 @@
         if (count >= 0) {
             //发送ajax请求
             $.ajax({
-                url: '/pgtest/add?count='+count,
+                //这里是开始评分
+                url: '/pgtest/test?count='+count,
                 type: 'GET',
                 success: function (result) {
                     if (result.status = true) {

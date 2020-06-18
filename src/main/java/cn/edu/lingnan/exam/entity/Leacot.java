@@ -30,12 +30,23 @@ public class Leacot implements Serializable {
     /**
     * 关联回复内容
     */
-    private Integer replyId;
+    private Reply replyId;
     /**
     * 回复状态
     */
     private Integer status;
 
+    public Leacot() {
+    }
+
+    public Leacot(Integer id, String content, Date leacotsTime, String leacotsUser, Reply replyId, Integer status) {
+        this.id = id;
+        this.content = content;
+        this.leacotsTime = leacotsTime;
+        this.leacotsUser = leacotsUser;
+        this.replyId = replyId;
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;
@@ -69,11 +80,11 @@ public class Leacot implements Serializable {
         this.leacotsUser = leacotsUser;
     }
 
-    public Integer getReplyId() {
+    public Reply getReplyId() {
         return replyId;
     }
 
-    public void setReplyId(Integer replyId) {
+    public void setReplyId(Reply replyId) {
         this.replyId = replyId;
     }
 

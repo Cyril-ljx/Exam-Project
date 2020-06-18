@@ -60,4 +60,9 @@
         delete from exam.label where id = #{id}
     </delete>
 
+    <select id="selectAll" resultMap="LabelMap">
+    select id, label_name
+    from exam.label
+  </select>
+
 </mapper>

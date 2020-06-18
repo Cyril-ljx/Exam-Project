@@ -74,4 +74,17 @@
         delete from exam.reply where id = #{id}
     </delete>
 
+    <delete id="deleteByPrimaryKey">
+    delete from reply
+    where id = #{id}
+  </delete>
+
+    <update id="updateByPrimaryKey">
+    update reply
+    set reply_content = #{replyContent},
+      reply_time = #{replyTime},
+      reply_user = #{replyUser}
+    where id = #{id}
+    </update>
+
 </mapper>

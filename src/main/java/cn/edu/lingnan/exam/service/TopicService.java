@@ -1,6 +1,5 @@
 package cn.edu.lingnan.exam.service;
 
-import cn.edu.lingnan.exam.entity.Notice;
 import cn.edu.lingnan.exam.entity.Topic;
 import java.util.List;
 
@@ -53,5 +52,13 @@ public interface TopicService {
      */
     boolean deleteById(Integer id);
 
-    List<Topic> queryAll();
+    int count();
+
+    /**
+     * 查询全部题目
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<Topic> selectAll(int page,int limit);
 }
