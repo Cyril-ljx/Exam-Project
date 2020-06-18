@@ -55,9 +55,9 @@ public class UserController {
     //去到用户管理页面
     @RequestMapping("userUi")
     public String userUI() {
-        /*if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
-        }*/
+        }
         return "admin/user/userList";
     }
 

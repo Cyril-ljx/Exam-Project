@@ -24,7 +24,7 @@ public class ConsoleController {
 
     @RequestMapping("/home/console")
     public String console() {
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/home/console";
