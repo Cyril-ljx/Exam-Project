@@ -1,5 +1,4 @@
 package cn.edu.lingnan.exam.controller.client;
-
 import cn.edu.lingnan.exam.common.LoginSession;
 import cn.edu.lingnan.exam.entity.Pgtest;
 import cn.edu.lingnan.exam.service.PgtestService;
@@ -44,7 +43,7 @@ public class ClientPgTestController {
         //共享数据
         return "client/html/pgtest";
     }
-
+  
     @ResponseBody
     @RequestMapping("/test")
     public Map<String, Object> addPgTest(@RequestParam("count") Integer count) {
@@ -98,6 +97,5 @@ public class ClientPgTestController {
         mapData.put("status", false);
         return mapData;
     }
-
 
 }

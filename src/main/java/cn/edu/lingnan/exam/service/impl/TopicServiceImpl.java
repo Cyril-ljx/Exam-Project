@@ -1,6 +1,7 @@
 package cn.edu.lingnan.exam.service.impl;
 
 import cn.edu.lingnan.exam.common.LoginSession;
+import cn.edu.lingnan.exam.entity.Notice;
 import cn.edu.lingnan.exam.entity.Topic;
 import cn.edu.lingnan.exam.dao.TopicDao;
 import cn.edu.lingnan.exam.service.TopicService;
@@ -39,7 +40,7 @@ public class TopicServiceImpl implements TopicService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -163,4 +164,11 @@ public class TopicServiceImpl implements TopicService {
         PageInfo info = new PageInfo(topics);
         return info.getList();
     }
+
+    @Override
+    public List<Topic> queryAll() {
+        return topicDao.queryAll();
+    }
+
+
 }

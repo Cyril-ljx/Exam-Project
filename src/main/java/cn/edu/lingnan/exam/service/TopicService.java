@@ -1,5 +1,6 @@
 package cn.edu.lingnan.exam.service;
 
+import cn.edu.lingnan.exam.entity.Notice;
 import cn.edu.lingnan.exam.entity.Topic;
 import java.util.List;
 

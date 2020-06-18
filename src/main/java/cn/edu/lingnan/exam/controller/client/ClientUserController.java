@@ -24,34 +24,25 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("user")
 public class ClientUserController {
-    /**
-     * 服务对象
-     */
-    @Resource
-    private UserService userService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     *
-     * @return 单条数据
-     */
-//    @GetMapping("selectOne")
-//    public User selectOne(Integer id) {
-//        return this.userService.queryById(id);
-//    }
+/**
+ * 用户信息控制器
+ */
+@Controller
+public class ClientUserController {
 
     @RequestMapping("/userinfoView")
     public String userInfoView(){
 
         return "client/html/userinfo";
     }
-
+  
     @RequestMapping("/register")
     public String register(){
         return "admin/user/userRegister";
     }
-
 
     @ResponseBody
     @RequestMapping("/register_do")

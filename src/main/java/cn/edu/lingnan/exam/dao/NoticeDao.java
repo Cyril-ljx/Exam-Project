@@ -1,7 +1,10 @@
 package cn.edu.lingnan.exam.dao;
 
 import cn.edu.lingnan.exam.entity.Notice;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -10,6 +13,8 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-15 17:20:21
  */
+@Mapper
+@Repository
 public interface NoticeDao {
 
     /**
@@ -33,18 +38,16 @@ public interface NoticeDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param notice 实例对象
      * @return 对象列表
      */
-    List<Notice> queryAll(Notice notice);
+    List<Notice> queryAll();
 
     /**
      * 新增数据
      *
-     * @param notice 实例对象
      * @return 影响行数
      */
-    int insert(Notice notice);
+    int insert(Notice record);
 
     /**
      * 修改数据
@@ -62,4 +65,7 @@ public interface NoticeDao {
      */
     int deleteById(Integer id);
 
+    List<Notice> selectByKeyWord(String keyword1, String keyword2);
+
+    int count();
 }

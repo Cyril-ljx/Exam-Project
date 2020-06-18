@@ -45,9 +45,9 @@ mybatis:
 
 
 # 打印sql
-logging:
-  level:
-    cn.edu.lingnan.exam.dao : debug
+#logging:
+#  level:
+#    cn.edu.lingnan.exam.dao : debug
     #指定日志配置文件路径
 #  config: cla
 #  file:

@@ -31,18 +31,16 @@ public interface NoticeService {
     /**
      * 新增数据
      *
-     * @param notice 实例对象
+     * @param record 实例对象
      * @return 实例对象
      */
-    Notice insert(Notice notice);
+    boolean insert(Notice record);
 
     /**
      * 修改数据
-     *
-     * @param notice 实例对象
      * @return 实例对象
      */
-    Notice update(Notice notice);
+    boolean update(Notice record);
 
     /**
      * 通过主键删除数据
@@ -52,4 +50,13 @@ public interface NoticeService {
      */
     boolean deleteById(Integer id);
 
+    List<Notice> queryAll(int page,int limit);
+
+    List<Notice> selectAllClientNotice();
+
+    List<Notice> selectByKeyWord(int page, int limit, String keyword1, String keyword2);
+
+    Notice selectByPrimerKey(Integer id);
+
+    int count();
 }
