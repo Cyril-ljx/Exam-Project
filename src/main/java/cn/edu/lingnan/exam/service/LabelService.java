@@ -52,4 +52,10 @@ public interface LabelService {
      */
     boolean deleteById(Integer id);
 
+    /**
+     * 查询全部标签以便可以进行选择
+     * @return
+     */
+    List<Label> selectAll();
+
 }

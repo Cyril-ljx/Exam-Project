@@ -80,5 +80,26 @@
     <delete id="deleteById">
         delete from exam.pgtest where id = #{id}
     </delete>
+    <select id="selectAllByKeyWord" resultMap="PgtestMap">
+        select id, pgtest_result, pgtest_score,pgtest_time, user_op
+        from exam.pgtest
+        <where>
+            <if test="_parameter !=null and _parameter != '' and _parameter !='undefined' ">
+                user_op=#{keyword1}
+            </if>
+        </where>
+    </select>
+    <select id="count" resultType="int">
+      select count(*) from exam.pgtest
+    </select>
+    <select id="selectAll" resultMap="PgtestMap">
+    select id, pgtest_result, pgtest_score,pgtest_time, user_op
+    from exam.pgtest
+    </select>
+    <delete id="deleteByPrimaryKey">
+    delete from exam.pgtest
+    where id = #{id}
+    </delete>
+
 
 </mapper>

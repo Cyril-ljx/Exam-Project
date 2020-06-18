@@ -34,7 +34,7 @@ public interface LeacotService {
      * @param leacot 实例对象
      * @return 实例对象
      */
-    Leacot insert(Leacot leacot);
+    boolean insert(Leacot leacot);
 
     /**
      * 修改数据
@@ -52,4 +52,46 @@ public interface LeacotService {
      */
     boolean deleteById(Integer id);
 
+    /**
+     * 查看全部留言
+     * @return
+     */
+    List<Leacot> selectByList();
+
+    List<Leacot> selectByKeyWord(Integer page, Integer limit, String keyword1);
+
+    /**
+     * 查询总数，并进行显示
+     * @return
+     */
+    int count();
+
+    /**
+     * 选出全部留言并显示
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<Leacot> selectAll(int page, int limit);
+
+    /**
+     * 根据id查询留言
+     * @param id
+     * @return
+     */
+    Leacot selectByPrimaryKey(Integer id);
+
+    /**
+     * 删除留言
+     * @param id
+     * @return
+     */
+    boolean deleteByPrimaryKey(Integer id);
+
+    /**
+     * 更新
+     * @param record
+     * @return
+     */
+    boolean updateByPrimaryKey(Leacot record);
 }

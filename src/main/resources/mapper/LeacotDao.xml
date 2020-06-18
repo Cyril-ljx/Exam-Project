@@ -7,8 +7,14 @@
         <result property="content" column="content" jdbcType="VARCHAR"/>
         <result property="leacotsTime" column="leacots_time" jdbcType="TIMESTAMP"/>
         <result property="leacotsUser" column="leacots_user" jdbcType="VARCHAR"/>
-        <result property="replyId" column="reply_id" jdbcType="INTEGER"/>
         <result property="status" column="status" jdbcType="INTEGER"/>
+        <!--关联映射-->
+        <association property="replyId" javaType="cn.edu.lingnan.exam.entity.Reply">
+            <id property="id" column="id"/>
+            <result property="replyContent" column="reply_content"/>
+            <result property="replyTime" column="reply_time"/>
+            <result property="replyUser" column="reply_user"/>
+        </association>
     </resultMap>
 
     <!--查询单个-->
@@ -87,5 +93,76 @@
     <delete id="deleteById">
         delete from exam.leacot where id = #{id}
     </delete>
+    <select id="selectAll" resultMap="LeacotMap">
+        SELECT
+        le.id,
+        le.content,
+        le.leacots_time,
+        le.leacots_user,
+        re.id AS replyId,
+        le.status,
+        re.reply_content,
+        re.reply_time,
+        re.reply_user
+    FROM
+        leacot le
+        JOIN reply re ON le.reply_id = re.id ORDER BY le.leacots_time DESC
+  </select>
+
+    <select id="selectByKeyWord" resultMap="LeacotMap" parameterType="String">
+        SELECT
+        le.id,
+        le.content,
+        le.leacots_time,
+        le.leacots_user,
+        re.id as replyId,
+        le.status,
+        re.reply_content,
+        re.reply_time,
+        re.reply_user
+        FROM
+        leacot le
+        JOIN reply re ON le.reply_id = re.id
+        <where>
+            <if test="_parameter !=null and _parameter != '' and _parameter !='undefined' ">
+                le.leacots_user=#{keyword1}
+            </if>
+        </where>
+    </select>
+
+    <select id="count" resultType="int">
+      select count(*) from reply
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="LeacotMap">
+       SELECT
+        le.id,
+        le.content,
+        le.leacots_time,
+        le.leacots_user,
+        re.id as replyId,
+        le.status,
+        re.reply_content,
+        re.reply_time,
+        re.reply_user
+    FROM
+        leacot le
+        JOIN reply re ON le.reply_id = re.id
+    where le.id = #{id}
+  </select>
+    <delete id="deleteByPrimaryKey">
+    delete from leacot
+    where id = #{id}
+    </delete>
+
+    <update id="updateByPrimaryKey">
+    update leacot
+    set content = #{content},
+      leacots_time = #{leacotsTime},
+      leacots_user = #{leacotsUser},
+      reply_id = #{replyId.id},
+      status =#{status}
+    where id = #{id}
+    </update>
 
 </mapper>

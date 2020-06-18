@@ -4,7 +4,7 @@
 
     <resultMap type="cn.edu.lingnan.exam.entity.Topic" id="TopicMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property=" topicContent" column=" topic_content" jdbcType="VARCHAR"/>
+        <result property="topicContent" column="topic_content" jdbcType="VARCHAR"/>
         <result property="referAnswer" column="refer_answer" jdbcType="VARCHAR"/>
         <result property="topicTime" column="topic_time" jdbcType="TIMESTAMP"/>
         <result property="userOp" column="user_op" jdbcType="VARCHAR"/>
@@ -80,5 +80,37 @@
     <delete id="deleteById">
         delete from exam.topic where id = #{id}
     </delete>
+
+    <select id="selectAll" resultMap="TopicMap">
+    select id, topic_content, refer_answer, topic_time, user_op
+    from exam.topic
+    </select>
+
+    <select id="selectByKeyWord" resultMap="TopicMap">
+        select id, topic_content, refer_answer, topic_time, user_op
+        from exam.topic
+        <where>
+            <if test="_parameter !=null and _parameter !='' and _parameter !='undefined' ">
+                id=#{keyword1}
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteByPrimaryKey">
+    delete from exam.topic
+    where id = #{id}
+    </delete>
+
+    <update id="updateByPrimaryKey">
+    update exam.topic
+    set topic_content = #{topicContent},
+      refer_answer = #{referAnswer},
+      topic_time = #{topicTime},
+      user_op = #{userOp}
+    where id = #{id}
+    </update>
+    <select id="count" resultType="int">
+      select count(*) from exam.topic
+    </select>
 
 </mapper>

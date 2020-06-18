@@ -10,7 +10,6 @@ import java.io.Serializable;
  * @since 2020-06-15 17:19:46
  */
 public class Article implements Serializable {
-    private static final long serialVersionUID = 329125029044442635L;
     /**
     * 文章ID
     */
@@ -18,7 +17,8 @@ public class Article implements Serializable {
     /**
     * 文章标签
     */
-    private Integer label;
+//    private Integer label;
+    private Label label;
     /**
     * 文章标题
     */
@@ -49,11 +49,19 @@ public class Article implements Serializable {
         this.id = id;
     }
 
-    public Integer getLabel() {
+//    public Integer getLabel() {
+//        return label;
+//    }
+//
+//    public void setLabel(Integer label) {
+//        this.label = label;
+//    }
+
+    public Label getLabel() {
         return label;
     }
 
-    public void setLabel(Integer label) {
+    public void setLabel(Label label) {
         this.label = label;
     }
 

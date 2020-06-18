@@ -34,7 +34,7 @@ public interface PgtestService {
      * @param pgtest 实例对象
      * @return 实例对象
      */
-    Pgtest insert(Pgtest pgtest);
+    boolean insert(Pgtest pgtest);
 
     /**
      * 修改数据
@@ -52,4 +52,33 @@ public interface PgtestService {
      */
     boolean deleteById(Integer id);
 
+    /**
+     * 关键字查询
+     * @param page
+     * @param limit
+     * @param keyword1
+     * @return
+     */
+    List<Pgtest> selectByKeyWord(int page, int limit, String keyword1);
+
+    /**
+     * 计算总数
+     * @return
+     */
+    int count();
+
+    /**
+     * 查询全部并分页
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<Pgtest> selectAll(int page, int limit);
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    boolean deleteByPrimaryKey(Integer id);
 }

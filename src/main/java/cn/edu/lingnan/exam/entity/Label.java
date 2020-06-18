@@ -9,7 +9,6 @@ import java.io.Serializable;
  * @since 2020-06-15 17:19:57
  */
 public class Label implements Serializable {
-    private static final long serialVersionUID = -15970436654775966L;
     /**
     *  文章标签id
     */

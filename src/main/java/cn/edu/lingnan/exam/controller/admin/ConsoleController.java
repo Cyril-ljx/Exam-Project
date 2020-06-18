@@ -15,7 +15,7 @@ public class ConsoleController {
     @RequestMapping("/admin")
     public String index() {
         logger.info(LoginSession.getCurrentUser().getUsername());
-        if (!LoginSession.getCurrentUser().getUsername().equals("admin")) {
+        if (!LoginSession.getCurrentUser().getTocheck().equals(1)) {
             return "client/html/index";
         }
         return "admin/index";

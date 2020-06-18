@@ -34,7 +34,8 @@ public interface ArticleService {
      * @param article 实例对象
      * @return 实例对象
      */
-    Article insert(Article article);
+//    Article insert(Article article);
+     boolean insert(Article article);
 
     /**
      * 修改数据
@@ -52,4 +53,51 @@ public interface ArticleService {
      */
     boolean deleteById(Integer id);
 
+    /**
+     * 这是客户端查找全部页面的方法
+     * @return
+     */
+    List<Article> selectClientAll();
+
+    /**
+     * 查看具体的某篇文章
+     * @param id
+     * @return
+     */
+    Article selectByPrimaryKey(Integer id);
+
+    /**
+     * 关键字查询
+     * @param page
+     * @param limit
+     * @param keyword1
+     * @param keyword2
+     * @param keyword3
+     * @return
+     */
+    List<Article> selectByKeyWord(int page, int limit,String keyword1,String keyword2,String keyword3);
+
+    /**
+     * 查询全部
+     * @return
+     */
+    int count();
+
+    /**
+     * 分页
+     * @param page
+     * @param limit
+     * @return
+     */
+    List<Article> selectAll(int page,int limit);
+
+    /**
+     * 根据id进行删除
+     * @param id
+     * @return
+     */
+    boolean deleteByPrimaryKey(Integer id);
+
+    //根据拿到的对象对数据进行修改
+    boolean updateByPrimaryKey(Article article);
 }

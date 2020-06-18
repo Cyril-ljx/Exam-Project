@@ -49,9 +49,17 @@ public class ReplyServiceImpl implements ReplyService {
      * @return 实例对象
      */
     @Override
-    public Reply insert(Reply reply) {
-        this.replyDao.insert(reply);
-        return reply;
+    public boolean insert(Reply reply) {
+        try {
+            int insert = replyDao.insert(reply);
+            if (insert > 0) {
+                return true;
+            } else {
+                throw new RuntimeException("数据库异常....");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("后台异常...."+e.getMessage());
+        }
     }
 
     /**
@@ -61,9 +69,17 @@ public class ReplyServiceImpl implements ReplyService {
      * @return 实例对象
      */
     @Override
-    public Reply update(Reply reply) {
-        this.replyDao.update(reply);
-        return this.queryById(reply.getId());
+    public boolean updateByPrimaryKey(Reply reply) {
+        try {
+            int update = replyDao.updateByPrimaryKey(reply);
+            if (update > 0) {
+                return true;
+            } else {
+                throw new RuntimeException("数据库异常...");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("服务器异常...." + e.getMessage());
+        }
     }
 
     /**
@@ -75,5 +91,19 @@ public class ReplyServiceImpl implements ReplyService {
     @Override
     public boolean deleteById(Integer id) {
         return this.replyDao.deleteById(id) > 0;
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteByPrimaryKey(Integer id) {
+        int del = replyDao.deleteByPrimaryKey(id);
+        if (del > 0) {
+            return true;
+        }
+        return false;
     }
 }

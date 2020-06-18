@@ -28,6 +28,15 @@ public class Reply implements Serializable {
     */
     private String replyUser;
 
+    public Reply() {
+    }
+
+    public Reply(Integer id, String replyContent, Date replyTime, String replyUser) {
+        this.id = id;
+        this.replyContent = replyContent;
+        this.replyTime = replyTime;
+        this.replyUser = replyUser;
+    }
 
     public Integer getId() {
         return id;
