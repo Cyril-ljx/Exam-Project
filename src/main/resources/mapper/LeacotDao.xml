@@ -63,7 +63,7 @@
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into exam.leacot(content, leacots_time, leacots_user, reply_id, status)
-        values (#{content}, #{leacotsTime}, #{leacotsUser}, #{replyId}, #{status})
+        values (#{content}, #{leacotsTime}, #{leacotsUser}, #{replyId.id}, #{status})
     </insert>
 
     <!--通过主键修改数据-->
@@ -123,11 +123,11 @@
         FROM
         leacot le
         JOIN reply re ON le.reply_id = re.id
-        <where>
+            <where>
             <if test="_parameter !=null and _parameter != '' and _parameter !='undefined' ">
-                le.leacots_user=#{keyword1}
+                and le.leacots_user like concat('%',#{keyword1},'%')
             </if>
-        </where>
+            </where>
     </select>
 
     <select id="count" resultType="int">

@@ -1,6 +1,7 @@
 package cn.edu.lingnan.exam.service.impl;
 
 import cn.edu.lingnan.exam.common.LoginSession;
+import cn.edu.lingnan.exam.entity.Pgtest;
 import cn.edu.lingnan.exam.entity.Topic;
 import cn.edu.lingnan.exam.dao.TopicDao;
 import cn.edu.lingnan.exam.service.TopicService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Topic)表服务实现类
@@ -70,6 +72,10 @@ public class TopicServiceImpl implements TopicService {
         }
     }
 
+    @Override
+    public int insert(List<Topic> list){
+        return topicDao.insertBatch(list);
+    }
     /**
      * 修改数据
      *
@@ -95,6 +101,16 @@ public class TopicServiceImpl implements TopicService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Map<String, Object>> findExamRadioQuestions(Integer taotiid) {
+        return topicDao.findExamRadioQuestions(taotiid);
+    }
+
+    @Override
+    public List<Map<String, Object>> findExamCheckboxQuestions(Integer taotiid) {
+        return topicDao.findExamCheckboxQuestions(taotiid);
     }
 
     /**
@@ -162,5 +178,10 @@ public class TopicServiceImpl implements TopicService {
         List<Topic> topics = topicDao.selectAll();
         PageInfo info = new PageInfo(topics);
         return info.getList();
+    }
+
+    @Override
+    public Topic findAnswerById(String id) {
+        return topicDao.findAnswerById(id);
     }
 }

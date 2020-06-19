@@ -34,7 +34,12 @@
     <select id="selectByUsername" resultMap="UserMap">
         select
           id, username, password, email, name, address, phone, user_type, tocheck
-        from exam.user where username = #{username}
+        from exam.user
+        <where>
+            <if test="username !=null and username != '' and username !='undefined' ">
+                and username like concat('%',#{username},'%')
+            </if>
+            </where>
     </select>
 
 

@@ -1,7 +1,9 @@
 package cn.edu.lingnan.exam.service;
 
+import cn.edu.lingnan.exam.entity.Pgtest;
 import cn.edu.lingnan.exam.entity.Topic;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Topic)表服务接口
@@ -10,6 +12,9 @@ import java.util.List;
  * @since 2020-06-15 17:20:58
  */
 public interface TopicService {
+
+    /*找答案*/
+    public Topic findAnswerById(String id);
 
     /**
      * 通过ID查询单条数据
@@ -36,6 +41,8 @@ public interface TopicService {
      */
     boolean insert(Topic topic);
 
+    int insert(List<Topic> topics);
+
     /**
      * 修改数据
      *
@@ -51,6 +58,10 @@ public interface TopicService {
      * @return 是否成功
      */
     boolean deleteByPrimaryKey(Integer id);
+
+    public List<Map<String,Object>> findExamRadioQuestions(Integer taotiid);
+
+    public List<Map<String,Object>> findExamCheckboxQuestions(Integer taotiid);
 
     List<Topic> selectByList();
 

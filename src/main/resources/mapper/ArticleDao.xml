@@ -143,13 +143,13 @@
         <where>
             <!-- 模糊查询 -->
             <if test="keyword1 !=null and keyword1 != '' and keyword1 !='undefined' ">
-                a.id=#{keyword1}
+               and a.id like concat('%',#{keyword1},'%')
             </if>
             <if test="keyword2 !=null and keyword2 != '' and keyword2 !='undefined' ">
-                AND a.content=#{keyword2}
+                and a.content like concat('%',#{keyword2},'%')
             </if>
             <if test="keyword3 !=null and keyword3 != '' and keyword3 !='undefined' ">
-                AND a.title=#{keyword2}
+                        and a.title like concat('%',#{keyword3},'%')
             </if>
         </where>
     </select>

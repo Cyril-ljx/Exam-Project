@@ -19,6 +19,7 @@ public interface PgtestService {
      */
     Pgtest queryById(Integer id);
 
+
     /**
      * 查询多条数据
      *
@@ -81,4 +82,6 @@ public interface PgtestService {
      * @return
      */
     boolean deleteByPrimaryKey(Integer id);
+
+
 }

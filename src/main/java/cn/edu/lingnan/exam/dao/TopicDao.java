@@ -3,6 +3,7 @@ package cn.edu.lingnan.exam.dao;
 import cn.edu.lingnan.exam.entity.Topic;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
+import java.util.Map;
 
 /**
  * (Topic)表数据库访问层
@@ -11,6 +12,8 @@ import java.util.List;
  * @since 2020-06-15 17:20:58
  */
 public interface TopicDao {
+
+    public Topic findAnswerById(String id);
 
     /**
      * 通过ID查询单条数据
@@ -78,6 +81,12 @@ public interface TopicDao {
     int updateByPrimaryKey(Topic record);
 
     int count();
+    //返回单选题目
 
+    public List<Map<String,Object>> findExamRadioQuestions(Integer taotiid);
 
+    int insertBatch(@Param("list") List<Topic> list);
+
+    //返回多选题目
+    public List<Map<String,Object>> findExamCheckboxQuestions(Integer taotiid);
 }

@@ -112,5 +112,51 @@
     <select id="count" resultType="int">
       select count(*) from exam.topic
     </select>
-
+      <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into exam.topic( topic_content, refer_answer, topic_time, user_op)
+        values
+        <foreach collection="list" separator="," item="item">
+           (#{ item.topicContent}, #{item.referAnswer}, #{item.topicTime}, #{item.userOp})
+        </foreach>
+    </insert>
+ <select id="findExamRadioQuestions" parameterType="int" resultType="java.util.HashMap">
+   select t.id,t.topic_content,
+        t.type, t.taotiid,
+        t.optiona,t.optionb,
+        t.optionc,t.optiond,
+         t.refer_answer,l.label_name
+        from  label l,topic t
+        where
+       t.taotiid=l.id
+       and
+       t.type='单选'
+       and
+       l.id=#{value}
+  </select>
+   <select id="findExamCheckboxQuestions" parameterType="int" resultType="java.util.HashMap">
+   select t.id,t.topic_content,
+        t.type, t.taotiid,
+        t.optiona,t.optionb,
+        t.optionc,t.optiond,
+         t.refer_answer,l.label_name
+        from  label l,topic t
+        where
+       t.taotiid=l.id
+       and
+       t.type='多选'
+       and
+       l.id=#{value}
+  </select>
+    <select id="findAnswerById" parameterType="String" resultMap="TopicMap">
+     select
+         t.id,t.taotiid,
+        t.refer_answer,t.type,
+        l.label_name
+       from
+       label l,topic t
+         where
+         t.id=#{value}
+         and
+         l.id=t.taotiid
+</select>
 </mapper>

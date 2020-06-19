@@ -91,7 +91,7 @@ public class ClientLeacotController {
             //在Session中获取
             leacot.setLeacotsUser(LoginSession.getCurrentUser().getUsername());
 //            //生成关联
-//            leacot.setReplyId(reply);
+            leacot.setReplyId(reply);
             boolean insertLeacot = leacotService.insert(leacot);
             isSuccess = true;
             mapData.put("success", isSuccess);

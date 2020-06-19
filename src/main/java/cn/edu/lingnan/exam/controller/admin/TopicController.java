@@ -2,14 +2,20 @@ package cn.edu.lingnan.exam.controller.admin;
 
 import cn.edu.lingnan.exam.common.LoginSession;
 import cn.edu.lingnan.exam.common.ServerLayResult;
+import cn.edu.lingnan.exam.entity.CommonResult;
 import cn.edu.lingnan.exam.entity.Topic;
+import cn.edu.lingnan.exam.listener.TopicExcelListener;
 import cn.edu.lingnan.exam.service.TopicService;
+import com.alibaba.excel.EasyExcel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,4 +112,17 @@ public class TopicController {
         return dataMap;
     }
 
+    @PostMapping("upload")
+    @ResponseBody
+    public Object upload(MultipartFile file) {
+        CommonResult<String> result = new CommonResult<>();
+        try {
+            EasyExcel.read(file.getInputStream(), Topic.class, new TopicExcelListener(topicService)).sheet().doRead();
+        } catch (IOException e) {
+            e.printStackTrace();
+            result.setMsg("Excel上传出错");
+        }
+        result.setData(Collections.singletonList(file.getOriginalFilename()));
+        return result;
+    }
 }
