@@ -129,7 +129,7 @@ public class ClientPgTestController {
             if(topic.getType().equals("单选")) {
 
                 if(topic.getReferAnswer().equals(value)) {
-                    System.out.println(topic.getReferAnswer());
+//                    System.out.println(topic.getReferAnswer());
                     radioscores+=10;
                 }
             }
